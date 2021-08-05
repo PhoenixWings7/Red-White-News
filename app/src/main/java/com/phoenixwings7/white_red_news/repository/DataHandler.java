@@ -3,6 +3,7 @@ package com.phoenixwings7.white_red_news.repository;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 
 import com.phoenixwings7.white_red_news.repository.database.Database;
@@ -43,7 +44,7 @@ public class DataHandler implements NewsApiOnResponse<ApiNewsPost> {
         apiController.start();
     }
 
-    public List<NewsPost> getNewsPosts(){
+    public LiveData<List<NewsPost>> getNewsPostsLiveData(){
         return database.newsPostDao().getAllNewsPosts();
     }
 
