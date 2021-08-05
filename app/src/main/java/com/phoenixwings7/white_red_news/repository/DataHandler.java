@@ -3,6 +3,7 @@ package com.phoenixwings7.white_red_news.repository;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 
 import com.phoenixwings7.white_red_news.repository.database.Database;
@@ -27,8 +28,6 @@ public class DataHandler implements NewsApiOnResponse<ApiNewsPost> {
 
     public DataHandler(Context appContext, String externalStorageDir){
         this.externalStorageDir = externalStorageDir;
-        // set receiver for all data from this DataHandler
-
         setUpDatabase(appContext);
         // do it once, just here because this is a mock API
         getNewsPostsFromAPI();
@@ -43,7 +42,7 @@ public class DataHandler implements NewsApiOnResponse<ApiNewsPost> {
         apiController.start();
     }
 
-    public List<NewsPost> getNewsPosts(){
+    public LiveData<List<NewsPost>> getNewsPostsLiveData(){
         return database.newsPostDao().getAllNewsPosts();
     }
 
