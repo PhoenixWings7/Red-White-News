@@ -13,4 +13,7 @@ public interface NewsPostDao {
 
     @Insert
     void addNewsPost(NewsPost post);
+
+    @Insert
+    void addNewsPosts(List<NewsPost> newsPosts);
 }

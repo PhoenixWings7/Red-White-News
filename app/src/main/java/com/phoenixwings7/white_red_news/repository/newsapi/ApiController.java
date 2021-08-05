@@ -39,7 +39,7 @@ public class ApiController implements Callback<List<ApiNewsPost>> {
     public void onResponse(Call<List<ApiNewsPost>> call, Response<List<ApiNewsPost>> response) {
         if (response.isSuccessful()) {
             List<ApiNewsPost> apiNewsPosts = response.body();
-            doOnResponse.onSuccessfulResponse(apiNewsPosts);
+            doOnResponse.onApiSuccessfulResponse(apiNewsPosts);
         }
         else {
             Log.e(LOGCAT_TAG, String.valueOf(response.errorBody()));

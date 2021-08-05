@@ -2,8 +2,6 @@ package com.phoenixwings7.white_red_news.repository.newsapi;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.net.URL;
-
 public class ApiNewsPost {
     @SerializedName("id")
     private final int id;
@@ -12,9 +10,9 @@ public class ApiNewsPost {
     @SerializedName("description")
     private final String description;
     @SerializedName("icon")
-    private final URL urlToImage;
+    private final String urlToImage;
 
-    public ApiNewsPost(int id, String title, String description, URL urlToImage) {
+    public ApiNewsPost(int id, String title, String description, String urlToImage) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -33,7 +31,7 @@ public class ApiNewsPost {
         return description;
     }
 
-    public URL getUrlToImage() {
+    public String getUrlToImage() {
         return urlToImage;
     }
 }
